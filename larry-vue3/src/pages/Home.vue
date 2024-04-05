@@ -7,6 +7,8 @@ import { store } from '../store/building-store.js'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import TestData from './TestData.vue';
+import TestDataGym from './TestDataGym.vue';
+import TestDataCafe from './TestDataCafe.vue';
 
 // This is the original and favourite data
 /* const original = ref([{ title: 'Card 1' }, { title: 'Card 2' }, { title: 'Card 3' },])
@@ -24,32 +26,17 @@ const router = useRouter()
 
 // This is the drawer of graph
 const table = ref(false)
-const gridData = [
-    {
-        date: '2016-05-02',
-        name: 'Peter Parker',
-        address: 'Queens, New York City',
-    },
-    {
-        date: '2016-05-04',
-        name: 'Peter Parker',
-        address: 'Queens, New York City',
-    },
-    {
-        date: '2016-05-01',
-        name: 'Peter Parker',
-        address: 'Queens, New York City',
-    },
-    {
-        date: '2016-05-03',
-        name: 'Peter Parker',
-        address: 'Queens, New York City',
-    },
-]
+
+// This is the currently selected card title
+const selectedCardTitle = ref(null)
+
 // This is the method to open the drawer
 const navigateToTest = (title) => {
+    selectedCardTitle.value = title;
+    console.log(selectedCardTitle.value);
+    // Open the drawer
     table.value = true;
-    /* router.push(`/test?title=${title}`) */
+    //router.push(`/chart?title=${title}`)
 }
 
 
@@ -72,10 +59,13 @@ const navigateToTest = (title) => {
             :navigateToTest="() => navigateToTest(card.title)" />
     </div>
 
-    <!-- Pop up graph within a drawer after clicking card -->
+    <!-- Pop up graph within a drawer after clicking a card (Don't use selectedCardTitle.value) -->
     <el-drawer v-model="table" title="I have a nested table inside!" direction="rtl" size="70%">
-        <TestData />
+        <TestData :title="'Library'" v-if="selectedCardTitle === 'Card 1'" />
+        <TestDataGym :title="'Gym'" v-if="selectedCardTitle === 'Card 2'" />
+        <TestDataCafe :title="'Cafe'" v-if="selectedCardTitle === 'Card 3'" />
     </el-drawer>
+
 </template>
 
 <style scoped>

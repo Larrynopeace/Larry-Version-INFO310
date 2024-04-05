@@ -16,7 +16,7 @@ let UserSchema = new Schema({
         type: String,
         required: true,
     },
-}, { collection: 'users' }); // Specify the collection names in the database
+}, /* { collection: 'users' } */); // Specify the collection names in the database
 
 let UserModel = model('users', UserSchema);
 

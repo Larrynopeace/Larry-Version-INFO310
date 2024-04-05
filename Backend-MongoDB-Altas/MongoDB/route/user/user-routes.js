@@ -7,7 +7,7 @@ import loginUser from '../user/login-user.js';
 
 const router = Router();
 
-// Use the routes: CRUD
+// Use the created routes: CRUD
 router.use(loginUser);
 
 export default router;

@@ -1,6 +1,14 @@
+<!-- This is the chart of the test data of library  -->
+
 <script setup>
 import { onMounted } from 'vue';
 import * as echarts from 'echarts';
+import { defineProps } from 'vue'
+
+// Define the props
+const props = defineProps({
+    title: String
+})
 
 // This is the first scene of the graph
 let testData = [
@@ -136,7 +144,8 @@ onMounted(() => {
         },
 
         title: {
-            text: 'Test Dynamic Data'
+            //text: 'Test Dynamic Data'
+            text: props.title
         },
         tooltip: {
             trigger: 'axis',

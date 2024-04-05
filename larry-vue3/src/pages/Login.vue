@@ -60,6 +60,7 @@ const submitForm = async (formEl) => {
             axios.post('http://localhost:3000/user/login', user)
                 .then((response) => {
                     console.log('@@@response:', response)
+                    // Set token and user info in store
                     userStore.setToken(response.data.token)
                     userStore.setUserInfo(response.data.user)
                     router.push('/home')

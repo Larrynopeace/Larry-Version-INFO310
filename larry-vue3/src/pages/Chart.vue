@@ -1,4 +1,4 @@
-<!-- This is the eharts page -->
+<!-- This is the eharts example page -->
 
 <script setup>
 import * as echarts from 'echarts';
