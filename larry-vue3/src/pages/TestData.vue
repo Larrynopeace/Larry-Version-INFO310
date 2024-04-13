@@ -231,6 +231,11 @@ onMounted(() => {
 
         let newEntry = updatedTestData.shift();
 
+        // If the number of people is greater than 70, log the number of people
+        if (newEntry.numberOfPeople > 70) {
+            console.log(newEntry.numberOfPeople);
+        }
+
         testData.shift();
         testData.push(newEntry);
 

@@ -18,6 +18,7 @@ const BuildingSchema = new Schema({
     },
 });
 
+// 'building' is the collection name in the MongoDB database
 const Building = model('buildings', BuildingSchema);
 
 export default Building;

@@ -15,7 +15,8 @@ const routes = [
         path: '/',
         component: Layout,
         redirect: '/home',
-        meta: { requiresAuth: true },
+        meta: { requiresAuth: true }, 
+        // The 'meta' property is used to protect the routes that require authentication.
         children: [
             {
                 path: '/home',
@@ -60,11 +61,13 @@ const routes = [
     }
 ]
 
+// This is the router instance.
 const router = createRouter({
     history: createWebHistory(),
     routes
 })
 
+// This navigation guard is used to protect routes that require authentication.
 router.beforeEach((to, from, next) => {
     const userStore = store()
     if (to.meta.requiresAuth && !userStore.token) {

@@ -23,6 +23,7 @@ const BuildingSchema = new Schema({
       favoriteBuildings: [BuildingSchema]
   });
 
+// 'users_and_buildings' is the collection name in the MongoDB database
 const UserAndBuilding = model('users_and_buildings', UserAndBuildingSchema);
 
 export default UserAndBuilding;

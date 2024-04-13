@@ -18,6 +18,7 @@ let UserSchema = new Schema({
     },
 }, /* { collection: 'users' } */); // Specify the collection names in the database
 
+// 'users' is the collection name in the MongoDB database
 let UserModel = model('users', UserSchema);
 
 export default UserModel;
