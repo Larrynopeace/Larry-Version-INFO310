@@ -2,43 +2,14 @@
 
 import { Router } from 'express';
 import UserAndBuilding from '../../models/user-and-building.js';
-import BuildingModel from '../../models/building.js';
 
 const router = Router();
 
-/* router.put('/add-to-favorite/:id', (req, res) => {
-    UserAndBuilding.findOneAndUpdate(
-        { _id: req.params.id },
-        { $set: { isFavorite: true } },
-        { new: true }
-    )
-        .then((updatedBuilding) => {
-            console.log("@@@Added building: ", updatedBuilding);
-            res.send(updatedBuilding);
-        })
-        .catch((err) => {
-            res.status(400).send(err);
-        });
-}); */
-
-/* router.put('/cancel-favorite/:id', (req, res) => {
-    UserAndBuilding.findOneAndUpdate(
-        { _id: req.params.id },
-        { $set: { isFavorite: false } },
-        { new: true }
-    )
-        .then((updatedBuilding) => {
-            console.log("@@@Canceled building: ", updatedBuilding);
-            res.send(updatedBuilding);
-        })
-        .catch((err) => {
-            res.status(400).send(err);
-        });
-}); */
-
+// Due to the building object that we need to update is nested in an user object, we need to specify the user id and the building id
 router.put('/add-to-favorite/:userId/:buildingId', (req, res) => {
     UserAndBuilding.findOneAndUpdate(
         { _id: req.params.userId, 'favoriteBuildings._id': req.params.buildingId },
+        // $set is a MongoDB operator that sets or updates the value of a field
         { $set: { 'favoriteBuildings.$.isFavorite': true } },
         { new: true }
     )

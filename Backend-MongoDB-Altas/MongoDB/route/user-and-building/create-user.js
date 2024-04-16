@@ -41,6 +41,8 @@ router.post('/user/create', (req, res) => {
         ]
     })
 
+    // Check if the user already exists
+
     newUser.save()
         .then((data) => {
             console.log("@@@Created user:", data);

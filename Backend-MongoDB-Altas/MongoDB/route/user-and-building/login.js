@@ -1,13 +1,13 @@
 // This is the route handler for logging in a user
 
 import { Router } from 'express';
-import UserModel from '../../models/user.js';
+import UserAndBuilding from '../../models/user-and-building.js';
 import jwt from 'jsonwebtoken';
 
 const router = Router();
 
 router.post('/user/login', (req, res) => {
-    UserModel.findOne({ username: req.body.username })
+    UserAndBuilding.findOne({ username: req.body.username })
         .then((user) => {
             if (!user) {
                 return res.status(400).send('@@@Cannot find user');

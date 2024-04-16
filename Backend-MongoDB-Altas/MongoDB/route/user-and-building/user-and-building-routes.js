@@ -4,6 +4,7 @@ import { Router } from 'express';
 import getAll from './get-user-and-building.js';
 import updateFavorite from './update-favorite.js';
 import createUser from './create-user.js';
+import loginUser from './login.js';
 
 const router = Router();
 
@@ -11,6 +12,7 @@ const router = Router();
 router.use(getAll);
 router.use(updateFavorite);
 router.use(createUser);
+router.use(loginUser);
 
 export default router;
 

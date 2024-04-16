@@ -14,16 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // Import mongodb-setting.js
 import db from './MongoDB/mongodb-setting/mongodb-setting.js';
-import userRoutes from './MongoDB/route/user/user-routes.js';
-import buildingRoutes from './MongoDB/route/buildings/building-route.js';
 import userAndBuildingRoutes from './MongoDB/route/user-and-building/user-and-building-routes.js';
 
 // Connect to mongoDB
 db(() => {
-    // Use the user routes
-    app.use(userRoutes);
-    // Use the building routes
-    app.use(buildingRoutes);
+
     // Use the user and building routes
     app.use(userAndBuildingRoutes);
 

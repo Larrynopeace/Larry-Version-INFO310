@@ -10,8 +10,8 @@ const props = defineProps({
     title: String
 })
 
-// This is the first scene of the graph
-let testData = [
+// This is a simulated data of the library
+let dataOfLibrary = [
     {
         "areaId": "unique_area_identifier",
         "areaName": "Library",
@@ -60,10 +60,6 @@ let testData = [
         "timestamp": "2024-03-04T13:10:24",
         "numberOfPeople": 45
     },
-];
-
-// This is the fowllowing updating scenes of the graph
-let updatedTestData = [
     {
         "areaId": "unique_area_identifier",
         "areaName": "Library",
@@ -112,7 +108,28 @@ let updatedTestData = [
         "timestamp": "2024-03-04T13:10:40",
         "numberOfPeople": 85
     },
+    {
+        "areaId": "unique_area_identifier",
+        "areaName": "Library",
+        "timestamp": "2024-03-04T13:10:42",
+        "numberOfPeople": 90
+    },
+    {
+        "areaId": "unique_area_identifier",
+        "areaName": "Library",
+        "timestamp": "2024-03-04T13:10:44",
+        "numberOfPeople": 95
+    },
+    {
+        "areaId": "unique_area_identifier",
+        "areaName": "Library",
+        "timestamp": "2024-03-04T13:10:46",
+        "numberOfPeople": 100
+    },
 ];
+// Split the data into two parts: the first scene and the following updating scenes
+let testData = dataOfLibrary.slice(0, 7);
+let updatedTestData = dataOfLibrary.slice(7);
 
 // Extracting timestamps, areaNames, and numberOfPeople from testData
 const timestamps = testData.map(entry => entry.timestamp);
