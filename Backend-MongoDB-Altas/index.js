@@ -10,6 +10,8 @@ const app = express();
 import cors from 'cors';
 app.use(cors());
 app.use(express.json());
+// This urlencoded middleware function parses incoming request bodies before your handlers are called, specifically URL-encoded data (data sent from a form with the application/x-www-form-urlencoded MIME type).
+// The parsed data will be populated on the req.body object. This means that in your route handlers, you can access the data sent in the request with req.body.
 app.use(express.urlencoded({ extended: false }));
 
 // Import mongodb-setting.js

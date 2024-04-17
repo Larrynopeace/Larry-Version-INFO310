@@ -60,9 +60,13 @@ const submitForm = async (formEl) => {
             axios.post('http://localhost:3000/user/login', user)
                 .then((response) => {
                     console.log('@@@response:', response)
-                    // Set token and user info in store
+                    // Set token and user info in store - outdated method
+                    /* userStore.setUserInfo(response.data.user) */
+
+                    // Set user info in pinia store (userAndBuilding is an object that contains user and building arrays)
                     userStore.setToken(response.data.token)
-                    userStore.setUserInfo(response.data.user)
+                    userStore.setUserInfoWithBuilding(response.data.user)
+                    userStore.setOriginalAndFavourite()
                     router.push('/home')
 
                     // Send email to user after login

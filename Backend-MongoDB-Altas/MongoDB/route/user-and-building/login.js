@@ -8,6 +8,7 @@ const router = Router();
 
 router.post('/user/login', (req, res) => {
     UserAndBuilding.findOne({ username: req.body.username })
+        .populate('favoriteBuildings') // Fetch the actual building data, not just the building id
         .then((user) => {
             if (!user) {
                 return res.status(400).send('@@@Cannot find user');

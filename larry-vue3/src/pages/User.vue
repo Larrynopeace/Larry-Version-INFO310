@@ -15,19 +15,10 @@ import TestDataCafe from './TestDataCafe.vue';
 // Get pinia store
 const userStore = store()
 
-// Get the user info and store in pinia when the page is loaded
+const userInfoWithBuilding = userStore.userInfoWithBuilding
+
 onMounted(() => {
-    //Use axios to get the user info that contains the building array
-    axios.get('http://localhost:3000/user-and-building')
-        .then(response => {
-            console.log("@@@response:", response)
-            // Set user info in pinia store
-            userStore.setUserInfoWithBuilding(response.data.userAndBuilding)
-            userStore.setOriginalAndFavourite()
-        })
-        .catch(error => {
-            console.log(error)
-        })
+    console.log("@@@username:", userInfoWithBuilding.username)
 })
 
 // Add to favourite: Methods from the store
@@ -54,8 +45,8 @@ const navigateToTest = (title) => {
 <template>
 
     <h1>This is User page, user info are from pinia store</h1>
-    <h2>Welcome, {{ userStore.userInfo.username }}</h2>
-    <h2>Email: {{ userStore.userInfo.email }}</h2>
+    <h2>Welcome, {{ userStore.userInfoWithBuilding.username }}</h2>
+    <h2>Email: {{ userStore.userInfoWithBuilding.email }}</h2>
 
 
     <br><br>
@@ -66,8 +57,8 @@ const navigateToTest = (title) => {
     <div class="Building-list">
         <!-- Render from the favourite building array in store -->
         <BuildingCard v-for="(building, index) in userStore.favourite" :key="index" :title="building.buildingName"
-            :isFavourite="true" :onCancelFavourite="() => cancelFavourite(index)" 
-            :navigateToTest="() => navigateToTest(building.buildingName)"/>
+            :isFavourite="true" :onCancelFavourite="() => cancelFavourite(index)"
+            :navigateToTest="() => navigateToTest(building.buildingName)" />
     </div>
     <h2>Original</h2>
     <div class="Building-list">
