@@ -46,6 +46,7 @@ const router = useRouter()
 
 
 /* const submitForm = async (formEl: FormInstance | undefined) => { */
+// formEl is a reference to the form instance
 const submitForm = async (formEl) => {
     // User object to send to server
     const user = {
@@ -58,6 +59,14 @@ const submitForm = async (formEl) => {
             console.log('submit!')
             // Check user in console
             console.log('@@@User in form:', user)
+
+            // Show loading
+            const loading = ElLoading.service({
+                lock: true,
+                text: 'Loading',
+                background: 'rgba(0, 0, 0, 0.7)',
+            })
+            
             // Send user to server
             //axios.post('http://localhost:3000/user/login', user)
             axios.post('https://larry-version-info310-backend.onrender.com/user/login', user)
@@ -65,13 +74,6 @@ const submitForm = async (formEl) => {
                     console.log('@@@response:', response)
                     // Set token and user info in store - outdated method
                     /* userStore.setUserInfo(response.data.user) */
-
-                    // Show loading
-                    const loading = ElLoading.service({
-                        lock: true,
-                        text: 'Loading',
-                        background: 'rgba(0, 0, 0, 0.7)',
-                    })
 
                     // Set user info in pinia store (userAndBuilding is an object that contains user and building arrays)
                     userStore.setToken(response.data.token)
