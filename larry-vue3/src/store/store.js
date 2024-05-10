@@ -43,7 +43,8 @@ export const store = defineStore('user', () => {
         console.log("@@@Building ID: ", building._id)
         console.log("@@@User ID: ", userId)
         // Update the isFavorite field of the building to true
-        axios.put(`http://localhost:3000/add-to-favorite/${userId}/${building._id}`)
+        //axios.put(`http://localhost:3000/add-to-favorite/${userId}/${building._id}`)
+        axios.put(`https://larry-version-info310-backend.onrender.com/${userId}/${building._id}`)
             .then(() => {
                 favourite.value.push(building)
                 original.value.splice(index, 1)
@@ -60,7 +61,8 @@ export const store = defineStore('user', () => {
         console.log("@@@Building ID: ", building._id)
         console.log("@@@User ID: ", userId)
         // Update the isFavorite field of the building to false
-        axios.put(`http://localhost:3000/cancel-favorite/${userId}/${building._id}`)
+        //axios.put(`http://localhost:3000/cancel-favorite/${userId}/${building._id}`)
+        axios.put(`https://larry-version-info310-backend.onrender.com/${userId}/${building._id}`)
             .then(response => {
                 original.value.push(building)
                 favourite.value.splice(index, 1)
