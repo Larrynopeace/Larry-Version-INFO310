@@ -57,7 +57,8 @@ const submitForm = async (formEl) => {
             // Check user in console
             console.log('@@@User in form:', user)
             // Send user to server
-            axios.post('http://localhost:3000/user/login', user)
+            //axios.post('http://localhost:3000/user/login', user)
+            axios.post('https://larry-version-info310-backend.onrender.com/user/login', user)
                 .then((response) => {
                     console.log('@@@response:', response)
                     // Set token and user info in store - outdated method
