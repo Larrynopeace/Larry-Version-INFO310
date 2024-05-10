@@ -8,6 +8,7 @@ import Chart from '@/pages/Chart.vue'
 import Gauge from '@/pages/Gauge.vue'
 import TestData from '@/pages/TestData.vue'
 import Signup from '@/pages/Signup.vue'
+import SonToFather from '@/pages/SonToFather.vue'
 import { store } from '@/store/store'
 
 const routes = [
@@ -47,8 +48,13 @@ const routes = [
                 name: 'Test',
                 component: TestData,
                 meta: { requiresAuth: true}
-            }
-            
+            },
+            {
+                path: '/son-to-father',
+                name: 'SonToFather',
+                component: SonToFather,
+                meta: { requiresAuth: true}
+            }   
         ]
     },
     {

@@ -32,6 +32,7 @@ const b3 = {
 const router = Router();
 
 router.post('/user/create', (req, res) => {
+    // This is an object that we are going to save to the database
     const newUser = new UserAndBuilding({
         username: req.body.username,
         email: req.body.email,

@@ -6,6 +6,7 @@ import UserAndBuilding from '../../models/user-and-building.js';
 const router = Router();
 
 // Due to the building object that we need to update is nested in an user object, we need to specify the user id and the building id
+// This route handler will update the 'isFavorite' property of a building to true
 router.put('/add-to-favorite/:userId/:buildingId', (req, res) => {
     UserAndBuilding.findOneAndUpdate(
         { _id: req.params.userId, 'favoriteBuildings._id': req.params.buildingId },
@@ -23,6 +24,7 @@ router.put('/add-to-favorite/:userId/:buildingId', (req, res) => {
         });
 });
 
+// This route handler will update the 'isFavorite' property of a building to false
 router.put('/cancel-favorite/:userId/:buildingId', (req, res) => {
     UserAndBuilding.findOneAndUpdate(
         { _id: req.params.userId, 'favoriteBuildings._id': req.params.buildingId },

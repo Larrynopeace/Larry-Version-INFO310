@@ -13,7 +13,7 @@ const props = defineProps({
         <el-card class="hover-pointer" style="max-width: 300px; margin:20px " shadow="hover">
             <template #header>{{ title }}</template>
             <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                style="width: 100%" />
+                style="width: 100%; height: 100%" />
             <el-button @click.stop="isFavourite ? props.onCancelFavourite() : props.onAddToFavourite()">
                 {{ isFavourite ? 'Cancel from Favourite' : 'Add to Favourite' }}
             </el-button>

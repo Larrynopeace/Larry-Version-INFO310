@@ -25,7 +25,7 @@ onMounted(() => {
 const addToFavourite = (index) => userStore.addToFavourite(index)
 const cancelFavourite = (index) => userStore.cancelFavourite(index)
 
-// This is the drawer of graph
+// This is the controller of the drawer of graph
 const table = ref(false)
 
 // This is the currently selected card title

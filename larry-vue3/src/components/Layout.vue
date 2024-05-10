@@ -16,6 +16,8 @@ const activeIndex = computed(() => {
             return '1-1'
         case '/user':
             return '1-2'
+        case '/son-to-father':
+            return '1-2-1'
         case '/chart':
             return '1-3'
         case '/gauge':
@@ -54,6 +56,11 @@ const pushToGauge = () => {
 // A method pushes to /test
 const pushToTestData = () => {
     router.push('/test')
+}
+
+// A method pushed tp /son-to-father
+const pushToSonToFather = () => {
+    router.push('/son-to-father')
 }
 
 const handleOpen = (key, keyPath) => {
@@ -97,6 +104,7 @@ onMounted(() => {
                     </el-menu-item-group>
                     <el-menu-item-group title="Group Two">
                         <el-menu-item index="1-2" @click="pushToUser">User</el-menu-item>
+                        <el-menu-item index="1-2-1" @click="pushToSonToFather">Test Page</el-menu-item>
                     </el-menu-item-group>
                     <el-sub-menu index="1-4">
                         <template #title>Echarts</template>
