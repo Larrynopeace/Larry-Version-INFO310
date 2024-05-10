@@ -66,11 +66,6 @@ const submitForm = async (formEl) => {
                     // Set token and user info in store - outdated method
                     /* userStore.setUserInfo(response.data.user) */
 
-                    // Set user info in pinia store (userAndBuilding is an object that contains user and building arrays)
-                    userStore.setToken(response.data.token)
-                    userStore.setUserInfoWithBuilding(response.data.user)
-                    userStore.setOriginalAndFavourite()
-
                     // Show loading
                     const loading = ElLoading.service({
                         lock: true,
@@ -78,10 +73,15 @@ const submitForm = async (formEl) => {
                         background: 'rgba(0, 0, 0, 0.7)',
                     })
 
+                    // Set user info in pinia store (userAndBuilding is an object that contains user and building arrays)
+                    userStore.setToken(response.data.token)
+                    userStore.setUserInfoWithBuilding(response.data.user)
+                    userStore.setOriginalAndFavourite()
+
                     router.push('/home')
 
-                     // Close loading
-                     loading.close()
+                    // Close loading
+                    loading.close()
 
                     // Send email to user after login
                     /* axios.post('http://localhost:3000/send-email', { email: '2501990530@qq.com' })
