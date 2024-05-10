@@ -6,6 +6,7 @@ import axios from 'axios'
 import { store } from '../store/store'
 import { ElNotification } from 'element-plus'
 import { useRouter } from 'vue-router'
+import { ElLoading } from 'element-plus'
 
 /* interface RuleForm {
     username: string
@@ -43,6 +44,7 @@ const userStore = store()
 // Get router
 const router = useRouter()
 
+
 /* const submitForm = async (formEl: FormInstance | undefined) => { */
 const submitForm = async (formEl) => {
     // User object to send to server
@@ -68,7 +70,18 @@ const submitForm = async (formEl) => {
                     userStore.setToken(response.data.token)
                     userStore.setUserInfoWithBuilding(response.data.user)
                     userStore.setOriginalAndFavourite()
+
+                    // Show loading
+                    const loading = ElLoading.service({
+                        lock: true,
+                        text: 'Loading',
+                        background: 'rgba(0, 0, 0, 0.7)',
+                    })
+
                     router.push('/home')
+
+                     // Close loading
+                     loading.close()
 
                     // Send email to user after login
                     /* axios.post('http://localhost:3000/send-email', { email: '2501990530@qq.com' })
