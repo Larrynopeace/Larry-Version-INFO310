@@ -1,4 +1,5 @@
 ﻿# Larry-Version-INFO310
+URL from Render: https://larry-version-info310-frontend.onrender.com/login 
 1. No backend data yet, using test data created manually
 ![屏幕截图 2024-03-31 142844](https://github.com/Larrynopeace/Larry-Version-INFO310/assets/152678504/7d4829f7-bc4b-4195-ae6e-4933270de7d1)
 ![屏幕截图 2024-03-31 143103](https://github.com/Larrynopeace/Larry-Version-INFO310/assets/152678504/2b7c1eff-4ca3-4f6b-9676-9ac0c0cc0fa7)
